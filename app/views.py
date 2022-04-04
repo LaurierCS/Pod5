@@ -9,9 +9,9 @@ from .models import *
 
 
 def homepage(request):
-    x = "Hakuna Matata"
+    sentence = "Hakuna Matata"
     context = {
-        "x": x,
+        "sentence": sentence,
     }
     template_name = "index.html"
 
