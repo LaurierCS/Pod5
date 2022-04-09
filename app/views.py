@@ -13,6 +13,6 @@ def homepage(request):
     context = {
         "sentence": sentence,
     }
-    template_name = "index.html"
+    template_name = "app/homepage.html"
 
     return render(request, template_name, context)
