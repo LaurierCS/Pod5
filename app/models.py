@@ -64,4 +64,69 @@ class User_Rewards(models.Model):
         return "debug output"
 
     # Model Functions:
+
+
+class Task_Instance(models.Model):
+    # Entities:
+    task_ID = models.OneToOneField
+    task_status = models.BooleanField(str = "completed", str = "not completed")
+    time_worked = models.IntegerField(default=0)
+    time_break = models.IntegerField(max=60)#what should the max min for break be and would i put it here
+    # ^ int represented in minutes
+    #date_worked = models.DateField()
+
+    # Meta:
+    class Meta:
+        app_label = 'app'
+
+    # General Functions
+    def __str__(self):
+        return self.task_status
     
+    
+class Pomo_Instance(models.Model):
+    # Entities:
+    task_ID = models.OneToOneField
+    pomo_status = models.BooleanField(str = "completed", str = "not completed")
+    time_elapsed = models.TimeField()
+
+    # Meta:
+    class Meta:
+        app_label = 'app'
+    
+    # General Functions
+    def __str__(self):
+        return self.pomo_status
+
+class Pomo_Settings(models.Model):
+    # Entities:
+    timer_ID = models.IntegerField(max=15)
+    email_address = models.EmailField(unique= True, blank = False)
+    work_interval = models.PositiveIntegerField
+    break_interval = models.PositiveIntegerField
+    long_break_interval = models.PositiveIntegerField
+
+    # Meta:
+    class Meta:
+        app_label = 'app'
+    
+    #General Functions
+
+class Calender_Obj(models.Model):
+    # Entity:
+    calender_ID = models.DateTimeField
+
+    # Meta:
+    class Meta:
+        app_label = 'app'
+
+    # General Functions
+    def __str__(self):
+        return self.calender_ID
+
+class Task_Obj(models.Model):
+    # Entity: 
+    calender_ID = models.ForeignKey(Calender_Obj,)
+    notion_task_ID = models.BigAutoField(primary_key=True) #not sure
+    date = models.DateTimeField
+    description = models.CharField(max_length=250)
