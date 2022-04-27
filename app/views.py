@@ -16,3 +16,9 @@ def homepage(request):
     template_name = "app/homepage.html"
 
     return render(request, template_name, context)
+
+def loginpage(request):
+    
+    template_name = "app/loginpage.html"
+
+    return render(request, template_name)
