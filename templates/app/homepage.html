@@ -9,9 +9,12 @@
 {% endblock headers %}
 
 {% block content %}
-    <h1>Homepage</h1>
-    <h3>This page an example of a working html template with django. </h3>
-    <p>The word passed from the backend view for this page is <b>{{sentence}}</b></p>
+<div class="navbar">Navbar</div>
+<div class="content">
+    <div class="columns">
+        <div class="column" id="column1">Column 1</div>
+        <div class="column" id="column2">Column 2</div>
+    </div>
+</div>
 
-    <div class=""></div>
 {% endblock content%}
