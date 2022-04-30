@@ -2,6 +2,7 @@
 {% load static %}
 <head>
 	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
 
 {% block headers %}
@@ -9,10 +10,30 @@
 {% endblock headers %}
 
 {% block content %}
-    <h1>Homepage</h1>
-    <h3>This page an example of a working html template with django. </h3>
-    <p>The word passed from the backend view for this page is <b>{{sentence}}</b></p>
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="#">Home</a>
+    <a href="#">Planner</a>
+    <a href="#">Timer</a>
+    <a href="#">Sign Out</a>
+  </div>
+  
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+  
+  <script>
+  function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+  }
+  
+  function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+  }
+  </script>
+<div class="content">
+    <div class="columns">
+        <div class="column" id="column1">Column 1</div>
+        <div class="column" id="column2">Column 2</div>
+    </div>
+</div>
 
-    <div class=""></div>
-    
 {% endblock content%}
