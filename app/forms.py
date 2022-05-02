@@ -3,6 +3,20 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from .models import *
+import requests
+
+
+# Notion Form Setup:
+class User_Notion_Setup():
+    token = forms.CharField(max_length=50, required = True) # integration token
+    databaseID = forms.CharField(max_length=32, required = True) # database id: url snippet
+    
+    class Meta:
+        model = Notion_DB
+        fields = ('token', 'databaseID')
+
+    def save(self, commit = True):
+        pass
 
 # User Login Form:
 class User_Login(forms.ModelForm):
@@ -44,3 +58,5 @@ class EditProfileForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ('username', 'email')
+
+

@@ -6,9 +6,9 @@ from django.contrib.auth.models import User
 from django.db.models.fields import *
 from django.template.defaultfilters import slugify
 
-#Add Classes Here:
+#Add Entitites (as classes) Here:
 class User_Login(models.Model):
-    # Add Entities Here:
+    # Add Attributes Here:
     email = models.EmailField(unique= True, blank = False)
     password = models.CharField(max_length=100) # need to add constraints
 
@@ -24,7 +24,6 @@ class User_Login(models.Model):
 
 
 class User_Data(models.Model):
-    # Entities:
     email_address = models.OneToOneField( # fk for user
         User,
         on_delete=models.CASCADE, # delete obj if user obj deleted
@@ -35,7 +34,7 @@ class User_Data(models.Model):
     first_name = models.CharField(max_length=50, blank = False) # 
     last_name = models.CharField(max_length=50, blank = False)
 
-    # Time will be updated form
+    # Time will be updated with
     time_worked = models.DecimalField(decimal_places=2) # Time Represented in Hours   
     time_break = models.DecimalField(decimal_places=2) 
 
@@ -51,7 +50,7 @@ class User_Data(models.Model):
 
 class User_Rewards(models.Model):
     # Entities:
-    email_address = models.ForeignKey(User_Data, on_delete=models.CASCADE,)
+    email_address = models.ForeignKey(User_Data, on_delete=models.CASCADE)
     award_name = models.CharField(max_length=50)
     award_value = models.IntegerField()
 
@@ -66,12 +65,38 @@ class User_Rewards(models.Model):
     # Model Functions:
 
 
+# Notion Entities
+class Notion_DB(models.Model):
+    token = models.CharField(max_length=100)
+    databaseID = models.CharField(max_length=100)
+    # add pageID support as well
+
+    class Meta:
+        app_label = 'app'
+
+    def __str__(self):
+        return self.databaseID
+
+class Task_Obj(models.Model):
+    databaseID = models.ForeignKey(Notion_DB, on_delete=models.CASCADE)
+    taskID = models.CharField(max_length=100)
+    date = models.DateTimeField()
+    task_title = models.DateTimeField(max_length = 50)
+    task_description = models.CharField(max_length = 500)
+
+    class Meta:
+        app_label = 'app'
+
+    def __str__(self):
+        return self.task_title, 
+
+# Tasks Entities
 class Task_Instance(models.Model):
     # Entities:
     task_ID = models.OneToOneField
-    task_status = models.BooleanField(str = "completed", str = "not completed")
+    task_status = models.BooleanField()
     time_worked = models.IntegerField(default=0)
-    time_break = models.IntegerField(max=60)#what should the max min for break be and would i put it here
+    time_break = models.IntegerField()#what should the max min for break be and would i put it here
     # ^ int represented in minutes
     #date_worked = models.DateField()
 
@@ -83,11 +108,10 @@ class Task_Instance(models.Model):
     def __str__(self):
         return self.task_status
     
-    
 class Pomo_Instance(models.Model):
     # Entities:
     task_ID = models.OneToOneField
-    pomo_status = models.BooleanField(str = "completed", str = "not completed")
+    pomo_status = models.BooleanField()
     time_elapsed = models.TimeField()
 
     # Meta:
@@ -100,7 +124,7 @@ class Pomo_Instance(models.Model):
 
 class Pomo_Settings(models.Model):
     # Entities:
-    timer_ID = models.IntegerField(max=15)
+    timer_ID = models.IntegerField()
     email_address = models.EmailField(unique= True, blank = False)
     work_interval = models.PositiveIntegerField
     break_interval = models.PositiveIntegerField
@@ -124,9 +148,3 @@ class Calender_Obj(models.Model):
     def __str__(self):
         return self.calender_ID
 
-class Task_Obj(models.Model):
-    # Entity: 
-    calender_ID = models.ForeignKey(Calender_Obj,)
-    notion_task_ID = models.BigAutoField(primary_key=True) #not sure
-    date = models.DateTimeField
-    description = models.CharField(max_length=250)
