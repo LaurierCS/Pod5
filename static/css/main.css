@@ -5,7 +5,12 @@
     border: 0;
 }
 
-
+.logo {
+    position: absolute;
+    top:3%;
+    left:50%;
+    transform: translate(-50%, -50%);
+}
 
 .content {
     width: 100%;
@@ -21,7 +26,7 @@
 
 
 .columns {
-    width: 300px;
+    width: 75%;
     height: 700px;
 
     display: flex;
@@ -29,14 +34,14 @@
 
     background-color: green;
     border: solid black 3px;
-    padding: 15px;
+    padding: 5px;
 
 }
 
 .column {
-    width: 300px;
+    width: 70%;
     height: 700px;
-    background-color: blue;
+    background-color: #F2BAC9;
     border: solid black 3px;
 }
 
@@ -48,23 +53,24 @@
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #111;
+    background-color: #F3F3F3;
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
   }
   
   .sidenav a {
+    font-family: 'Nunito';
     padding: 8px 8px 8px 32px;
     text-decoration: none;
-    font-size: 25px;
-    color: #818181;
+    font-size: 30px;
+    color: black;
     display: block;
     transition: 0.3s;
   }
   
   .sidenav a:hover {
-    color: #f1f1f1;
+    color: #BAD7F2;
   }
   
   .sidenav .closebtn {
