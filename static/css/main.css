@@ -134,4 +134,65 @@ div.l {
 
 #buttons button#stop {
   background: #f36188;
+} color: white;
+  font-size: 50px;
+  margin: 10px auto;
+  border: 5px solid white;
+  /* border-radius:25px; */
+  /* coffee cup */
+  border-bottom-left-radius: 100px;
+  border-bottom-right-radius: 100px;
+  border: 10px solid gray;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default;
+}
+
+#time {
+  margin-top: 70px;
+  z-index: 1;
+  position: relative;
+}
+
+#filler {
+  background: #8D6852;
+  height: 0px;
+  width: 200px;
+  position: absolute;
+  bottom: 0;
+}
+
+#buttons button {
+  background: #70b0ec;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 5px;
+  width: 90px;
+  margin: 10px auto;
+  font-size: 14px;
+  height: 50px;
+  border-radius: 50px;
+}
+
+#buttons button#shortBreak {
+  background: #75f1a4;
+}
+
+#buttons button#longBreak {
+  background: #69c66b;
+}
+
+#buttons button#stop {
+  background: #f36188;
 }
