@@ -195,4 +195,50 @@ div.l {
 
 #buttons button#stop {
   background: #f36188;
+=======
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+
+.navbar {
+    width: 100vw;
+    height: 50px;
+    background: red;
+}
+
+.content {
+    width: 100%;
+    height: fit-content;
+    min-height: 100vh;
+    background: yellow;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    border: solid black 3px;
+}
+
+
+.columns {
+    width: 300px;
+    height: 700px;
+
+    display: flex;
+    flex-direction: row;
+
+    background-color: green;
+    border: solid black 3px;
+    padding: 15px;
+
+}
+
+.column {
+    width: 300px;
+    height: 700px;
+    background-color: blue;
+    border: solid black 3px;
 }
