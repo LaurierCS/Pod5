@@ -1,4 +1,11 @@
+<<<<<<< Updated upstream
 {% extends "base.html" %} {% load static %}
+=======
+{% extends "base.html" %}
+{% load static %}
+<head>
+	<link rel="stylesheet" type="text/css" href="static/css/main.css">
+>>>>>>> Stashed changes
 <head>
   <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}" />
   <!-- navbar -->
@@ -37,11 +44,20 @@
       document.getElementById("mySidenav").style.width = "250px";
     }
 
+<<<<<<< Updated upstream
     function closeNav() {
       document.getElementById("mySidenav").style.width = "0";
     }
   </script>
   <div class="content">
+=======
+{% block content %}
+<div class="navbar">
+    <img src="static/images/logo.PNG" alt="GRIND" width="20" height="20">
+    <button style="font-size:10px"> <i class="material-icons">menu</i></button>
+</div>
+<div class="content">
+>>>>>>> Stashed changes
     <div class="columns">
       <div class="column" id="ToDoList">
           <h1><center>To-Do List</center></h1>

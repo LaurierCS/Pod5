@@ -5,11 +5,24 @@
     border: 0;
 }
 
+<<<<<<< Updated upstream
 .logo {
     position: absolute;
     top:3%;
     left:50%;
     transform: translate(-50%, -50%);
+=======
+
+.navbar {
+    width: 100vw;
+    height: 50px;
+
+}
+img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+>>>>>>> Stashed changes
 }
 
 .content {
