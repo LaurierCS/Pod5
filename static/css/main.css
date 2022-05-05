@@ -1,3 +1,201 @@
+body{
+  background-color: #FBEFDF;
+  font-family: Nunito;
+}
+
+/* navbar */
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #8D6852;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 30px;
+  color: black;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: white;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.logo {
+  position: absolute;
+  top: 3%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* in this container we will add the tasks */
+div.l {
+  left: 20%;
+  top: 100px;
+  width: 27%;
+  height: fit-content;
+  border: 5px solid #ffff00;
+  padding: 10px;
+
+  position: absolute;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* the timer */
+#container {
+  position: absolute;
+  right: 15%;
+  top: 100px;
+  border-radius: 25px;
+  width: 375px;
+  margin: 20px auto;
+  padding: 20px;
+  text-align: center;
+  background: #cfa57e;
+}
+
+#timer {
+  color: white;
+  font-size: 50px;
+  margin: 10px auto;
+  border: 5px solid white;
+  /* border-radius:25px; */
+  /* coffee cup */
+  border-bottom-left-radius: 100px;
+  border-bottom-right-radius: 100px;
+  border: 10px solid gray;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default;
+}
+
+#time {
+  margin-top: 70px;
+  z-index: 1;
+  position: relative;
+}
+
+#filler {
+  background: #8D6852;
+  height: 0px;
+  width: 200px;
+  position: absolute;
+  bottom: 0;
+}
+
+#buttons button {
+  background: #70b0ec;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 5px;
+  width: 90px;
+  margin: 10px auto;
+  font-size: 14px;
+  height: 50px;
+  border-radius: 50px;
+}
+
+#buttons button#shortBreak {
+  background: #75f1a4;
+}
+
+#buttons button#longBreak {
+  background: #69c66b;
+}
+
+#buttons button#stop {
+  background: #f36188;
+} color: white;
+  font-size: 50px;
+  margin: 10px auto;
+  border: 5px solid white;
+  /* border-radius:25px; */
+  /* coffee cup */
+  border-bottom-left-radius: 100px;
+  border-bottom-right-radius: 100px;
+  border: 10px solid gray;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default;
+}
+
+#time {
+  margin-top: 70px;
+  z-index: 1;
+  position: relative;
+}
+
+#filler {
+  background: #8D6852;
+  height: 0px;
+  width: 200px;
+  position: absolute;
+  bottom: 0;
+}
+
+#buttons button {
+  background: #70b0ec;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 5px;
+  width: 90px;
+  margin: 10px auto;
+  font-size: 14px;
+  height: 50px;
+  border-radius: 50px;
+}
+
+#buttons button#shortBreak {
+  background: #75f1a4;
+}
+
+#buttons button#longBreak {
+  background: #69c66b;
+}
+
+#buttons button#stop {
+  background: #f36188;
+=======
 * {
     box-sizing: border-box;
     margin: 0;

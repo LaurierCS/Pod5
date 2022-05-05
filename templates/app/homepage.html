@@ -1,20 +1,154 @@
-{% extends "base.html" %}
+{% extends "base.html" %} 
 {% load static %}
 <head>
-	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
-<head>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}" />
+  <!-- navbar -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- font -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Nunito"
+    rel="stylesheet"
+  />
+</head>
 
 {% block headers %}
-    <title>Homepage</title>
-{% endblock headers %}
+<body>
+  <title>Homepage</title>
+  {% endblock headers %} {% block content %}
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+      >&times;
+    </a>
+    <a href="#">Home</a>
+    <a href="#">Planner</a>
+    <a href="#">Timer</a>
+    <a href="#">Sign Out</a>
+  </div>
 
-{% block content %}
-<div class="navbar">Navbar</div>
-<div class="content">
-    <div class="columns">
-        <div class="column" id="column1">Column 1</div>
-        <div class="column" id="column2">Column 2</div>
+  <span style="font-size: 30px; cursor: pointer" onclick="openNav()">&#9776;</span>
+
+  <script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "250px";
+    }
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
+  </script>
+
+
+
+
+    <!-- pomodoro timer -->
+    <div id="pomodoroTimer">
+      <div id="container">
+        <div id="timer">
+          <div id="time">
+            <span id="minutes">25</span>
+            <span id="colon">:</span>
+            <span id="seconds">00</span>
+          </div>
+          <div id="filler"></div>
+        </div>
+  
+        <div id="buttons">
+          <button id="work">work</button>
+          <button id="shortBreak">short break</button>
+          <button id="longBreak">long break</button>
+          <button id="stop">stop</button>
+        </div>
+      </div>
     </div>
-</div>
-
+    <script>
+      var pomodoro = {
+        started: false,
+        minutes: 0,
+        seconds: 0,
+        fillerHeight: 0,
+        fillerIncrement: 0,
+        interval: null,
+        minutesDom: null,
+        secondsDom: null,
+        fillerDom: null,
+        init: function () {
+          var self = this;
+          this.minutesDom = document.querySelector("#minutes");
+          this.secondsDom = document.querySelector("#seconds");
+          this.fillerDom = document.querySelector("#filler");
+          this.interval = setInterval(function () {
+            self.intervalCallback.apply(self);
+          }, 1000);
+          document.querySelector("#work").onclick = function () {
+            self.startWork.apply(self);
+          };
+          document.querySelector("#shortBreak").onclick = function () {
+            self.startShortBreak.apply(self);
+          };
+          document.querySelector("#longBreak").onclick = function () {
+            self.startLongBreak.apply(self);
+          };
+          document.querySelector("#stop").onclick = function () {
+            self.stopTimer.apply(self);
+          };
+        },
+        resetVariables: function (mins, secs, started) {
+          this.minutes = mins;
+          this.seconds = secs;
+          this.started = started;
+          this.fillerIncrement = 200 / (this.minutes * 60);
+          this.fillerHeight = 0;
+        },
+        startWork: function () {
+          this.resetVariables(25, 0, true);
+        },
+        startShortBreak: function () {
+          this.resetVariables(5, 0, true);
+        },
+        startLongBreak: function () {
+          this.resetVariables(15, 0, true);
+        },
+        stopTimer: function () {
+          this.resetVariables(25, 0, false);
+          this.updateDom();
+        },
+        toDoubleDigit: function (num) {
+          if (num < 10) {
+            return "0" + parseInt(num, 10);
+          }
+          return num;
+        },
+        updateDom: function () {
+          this.minutesDom.innerHTML = this.toDoubleDigit(this.minutes);
+          this.secondsDom.innerHTML = this.toDoubleDigit(this.seconds);
+          this.fillerHeight = this.fillerHeight + this.fillerIncrement;
+          this.fillerDom.style.height = this.fillerHeight + "px";
+        },
+        intervalCallback: function () {
+          if (!this.started) return false;
+          if (this.seconds == 0) {
+            if (this.minutes == 0) {
+              this.timerComplete();
+              return;
+            }
+            this.seconds = 59;
+            this.minutes--;
+          } else {
+            this.seconds--;
+          }
+          this.updateDom();
+        },
+        timerComplete: function () {
+          this.started = false;
+          this.fillerHeight = 0;
+        },
+      };
+      window.onload = function () {
+        pomodoro.init();
+      };
+    </script>
+  
+    <div class="logo">
+      <p>Logo goes here</p>
+    </div>
+</body>
 {% endblock content%}
