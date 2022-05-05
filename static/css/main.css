@@ -134,11 +134,6 @@ div.l {
 
 #buttons button#stop {
   background: #f36188;
- color: white;
-  font-size: 50px;
-  margin: 10px auto;
-  border: 5px solid white;
-  /* border-radius:25px; */
 }
 
 #time {
@@ -178,8 +173,6 @@ div.l {
 
 #buttons button#stop {
   background: #f36188;
-=======
-* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
