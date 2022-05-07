@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="../../static/css/signup.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+
+<body>
+    <form style="max-width:500px;margin:auto">
+        <h1>Register</h1>
+        <p>Let's get you all set up so you can verify your personal account and begin setting up your profile</p>
+        <hr>
+
+        <input type="text" placeholder="Enter Name" required><br>
+
+        <input type="text" placeholder="Enter Email" required><br>
+    
+        <input type="password" placeholder="Enter Password" required><br>
+
+        <input type="checkbox" id="terms" name="terms" value="terms">
+        <label for="terms"> I agree to the Terms & Conditions</label><br>
+
+        <button type="submit1" class="registerbtn">Create My Account</button>
+        <div class="main" id="section1">
+            <p>Already have an account? <a href="#section2">Sign in</a>.</p>
+        </div>
+    </form>
+
+    <form action="/action_page.php" style="max-width:500px;margin:auto">
+        <h1>Sign in</h1>
+        <p>Login to manage your account</p>
+        <hr>
+
+        <div class="input-container">
+            <i class="fa fa-envelope icon"></i>
+            <input class="input-field" type="text" placeholder="Email" name="email">
+        </div>
+            
+        <div class="input-container">
+            <i class="fa fa-key icon"></i>
+            <input class="input-field" type="password" placeholder="Password" name="psw">
+        </div>
+        <input type="checkbox" id="terms" name="terms" value="terms">
+        <label for="terms"> Remember me</label><br>
+
+        <button type="submit" class="btn">Sign in</button>
+        <div class="main" id="section2">
+            <p>Don't have an account? <a href="#section1">Register</a>.</p>
+        </div>
+    </form>
+</body>
