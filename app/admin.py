@@ -4,3 +4,5 @@ from .models import *
 
 # Register your models here.
 admin.site.register()#Model to register in the Admin site)
+
+admin.site.register(Todo)
