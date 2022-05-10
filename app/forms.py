@@ -5,14 +5,6 @@ from django.contrib.auth.models import User
 from .models import *
 
 # User Login Form:
-class User_Login(forms.ModelForm):
-    email = forms.EmailField(max_length=200, required=True)
-    password = forms.CharField(widget=forms.PasswordInput, max_length=100, required=True)
-
-    class Meta:
-        model = User
-        fields = ('email', 'password') 
-
 class UserRegisterForm(UserCreationForm):
     email = forms.EmailField()
     first_name = forms.CharField()
@@ -29,18 +21,3 @@ class UserRegisterForm(UserCreationForm):
         if commit:
             user.save()
         return user
-
-
-class UserUpdateForm(forms.ModelForm):
-    email = forms.EmailField()
-
-    class Meta:
-        model = User
-        fields = ['username', 'email']
-       
-
-class EditProfileForm(forms.ModelForm):
-    username = forms.CharField(required=True)
-    class Meta:
-        model = User
-        fields = ('username', 'email')

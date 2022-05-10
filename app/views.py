@@ -7,7 +7,6 @@ from django.contrib.auth.decorators import login_required
 from .forms import *
 from .models import *
 
-
 def homepage(request):
     sentence = "Hakuna Matata"
     context = {
@@ -22,3 +21,15 @@ def loginpage(request):
     template_name = "app/loginpage.html"
 
     return render(request, template_name)
+
+# Authentication
+def authentication(request):
+    sentence = "Login or Signup"
+    registration_form = UserRegisterForm()
+    context = {
+        'sentence': sentence,
+        'registration_form':registration_form,
+    }
+    template_name = 'app/authentication.html'
+    return render(request, template_name, context)
+
