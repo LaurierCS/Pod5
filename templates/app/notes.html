@@ -14,10 +14,10 @@
         >&times;
       </a>
       <a href="{% url 'homepage' %}">Home</a>
-    <a href="{% url 'settings' %}">Settings</a>
-    <a href="{% url 'account' %}">Account</a>
-    <a href="{% url 'notes' %}">Notes Page</a>
-    <a href="#">Planner</a>
+      <a href="{% url 'settings' %}">Settings</a>
+      <a href="{% url 'account' %}">Account</a>
+      <a href="{% url 'notes' %}">Notes Page</a>
+      <a href="#">Planner</a>
     </div>
 
     <span style="font-size: 30px; cursor: pointer" onclick="openNav()"
@@ -40,7 +40,6 @@
     <script>
       const notesContainer = document.getElementById("app");
       const addNoteButton = notesContainer.querySelector(".add-note");
-      const deleteNote = notesContainer.querySelector(".delete-note");
 
       getNotes().forEach((note) => {
         const noteElement = createNoteElement(note.id, note.content);
