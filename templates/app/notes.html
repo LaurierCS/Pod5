@@ -39,6 +39,7 @@
     <script>
       const notesContainer = document.getElementById("app");
       const addNoteButton = notesContainer.querySelector(".add-note");
+      const deleteNote = notesContainer.querySelector(".delete-note");
 
       getNotes().forEach((note) => {
         const noteElement = createNoteElement(note.id, note.content);
