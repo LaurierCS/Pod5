@@ -1,3 +1,4 @@
+import re
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
@@ -56,3 +57,15 @@ def deleteCompleted(request):
 def deleteAll(request):
     Todo.objects.all().delete()
     return redirect('index')
+
+def notes(request):
+    return render(request, 'app/notes.html')
+
+def homepage(request):
+    return render(request, 'app/homepage.html')
+
+def settings(request):
+    return render(request, 'app/settings.html')
+
+def account(request):
+    return render(request, 'app/signup.html')
