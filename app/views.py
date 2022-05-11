@@ -9,6 +9,7 @@ from .forms import *
 from .models import Todo
 from .models import *
 
+# Index
 def homepage(request):
     task = Todo()
     form = TodoForm()
@@ -18,21 +19,12 @@ def homepage(request):
 
     return render(request, template_name, context)
 
+# For Authentication and Notoin
 def loginpage(request):
     
     template_name = "app/loginpage.html"
 
     return render(request, template_name)
-
-# def index (request):
-#     todo_list = Todo.object.order_by('id')
-
-#     form = TodoForm()
-
-#     context = {'todo_list':todo_list, 'form,':form}
-
-#     template_name = "app/homepage.html"
-#     return render(request, template_name, context)
 
 @require_POST
 def addTodo(request):

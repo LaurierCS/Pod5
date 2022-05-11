@@ -219,3 +219,8 @@ div.l {
     border: solid black 3px;
 }
 
+/* Task Components */
+.todo_container {
+  background-color: brown;
+  border: solid grey 5px;
+}
