@@ -1,6 +1,9 @@
-{% extends "base.html" %} 
-{% load static %}
+{% extends "base.html" %} {% load static %}
 <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}" />
   <!-- navbar -->
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -9,6 +12,9 @@
     href="https://fonts.googleapis.com/css?family=Nunito"
     rel="stylesheet"
   />
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="{% static 'todo/bs/css/flatly.min.css' %}" />
+  <link rel="stylesheet" href="{% static 'todo/styles.css' %}" />
 </head>
 
 {% block headers %}
@@ -19,13 +25,16 @@
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
       >&times;
     </a>
-    <a href="#">Home</a>
+    <a href="{% url 'homepage' %}">Home</a>
+    <a href="{% url 'settings' %}">Settings</a>
+    <a href="{% url 'account' %}">Account</a>
+    <a href="{% url 'notes' %}">Notes Page</a>
     <a href="#">Planner</a>
-    <a href="#">Timer</a>
-    <a href="#">Sign Out</a>
   </div>
 
-  <span style="font-size: 30px; cursor: pointer" onclick="openNav()">&#9776;</span>
+  <span style="font-size: 30px; cursor: pointer" onclick="openNav()"
+    >&#9776;</span
+  >
 
   <script>
     function openNav() {
@@ -36,119 +45,167 @@
     }
   </script>
 
-
-
-
-    <!-- pomodoro timer -->
-    <div id="pomodoroTimer">
-      <div id="container">
-        <div id="timer">
-          <div id="time">
-            <span id="minutes">25</span>
-            <span id="colon">:</span>
-            <span id="seconds">00</span>
-          </div>
-          <div id="filler"></div>
+  <!-- pomodoro timer -->
+  <div id="pomodoroTimer">
+    <div id="container">
+      <div id="timer">
+        <div id="time">
+          <span id="minutes">25</span>
+          <span id="colon">:</span>
+          <span id="seconds">00</span>
         </div>
-  
-        <div id="buttons">
-          <button id="work">work</button>
-          <button id="shortBreak">short break</button>
-          <button id="longBreak">long break</button>
-          <button id="stop">stop</button>
-        </div>
+        <div id="filler"></div>
+      </div>
+
+      <div id="buttons">
+        <button id="work">work</button>
+        <button id="shortBreak">short break</button>
+        <button id="longBreak">long break</button>
+        <button id="stop">stop</button>
       </div>
     </div>
-    <script>
-      var pomodoro = {
-        started: false,
-        minutes: 0,
-        seconds: 0,
-        fillerHeight: 0,
-        fillerIncrement: 0,
-        interval: null,
-        minutesDom: null,
-        secondsDom: null,
-        fillerDom: null,
-        init: function () {
-          var self = this;
-          this.minutesDom = document.querySelector("#minutes");
-          this.secondsDom = document.querySelector("#seconds");
-          this.fillerDom = document.querySelector("#filler");
-          this.interval = setInterval(function () {
-            self.intervalCallback.apply(self);
-          }, 1000);
-          document.querySelector("#work").onclick = function () {
-            self.startWork.apply(self);
-          };
-          document.querySelector("#shortBreak").onclick = function () {
-            self.startShortBreak.apply(self);
-          };
-          document.querySelector("#longBreak").onclick = function () {
-            self.startLongBreak.apply(self);
-          };
-          document.querySelector("#stop").onclick = function () {
-            self.stopTimer.apply(self);
-          };
-        },
-        resetVariables: function (mins, secs, started) {
-          this.minutes = mins;
-          this.seconds = secs;
-          this.started = started;
-          this.fillerIncrement = 200 / (this.minutes * 60);
-          this.fillerHeight = 0;
-        },
-        startWork: function () {
-          this.resetVariables(25, 0, true);
-        },
-        startShortBreak: function () {
-          this.resetVariables(5, 0, true);
-        },
-        startLongBreak: function () {
-          this.resetVariables(15, 0, true);
-        },
-        stopTimer: function () {
-          this.resetVariables(25, 0, false);
-          this.updateDom();
-        },
-        toDoubleDigit: function (num) {
-          if (num < 10) {
-            return "0" + parseInt(num, 10);
+  </div>
+  <script>
+    var pomodoro = {
+      started: false,
+      minutes: 0,
+      seconds: 0,
+      fillerHeight: 0,
+      fillerIncrement: 0,
+      interval: null,
+      minutesDom: null,
+      secondsDom: null,
+      fillerDom: null,
+      init: function () {
+        var self = this;
+        this.minutesDom = document.querySelector("#minutes");
+        this.secondsDom = document.querySelector("#seconds");
+        this.fillerDom = document.querySelector("#filler");
+        this.interval = setInterval(function () {
+          self.intervalCallback.apply(self);
+        }, 1000);
+        document.querySelector("#work").onclick = function () {
+          self.startWork.apply(self);
+        };
+        document.querySelector("#shortBreak").onclick = function () {
+          self.startShortBreak.apply(self);
+        };
+        document.querySelector("#longBreak").onclick = function () {
+          self.startLongBreak.apply(self);
+        };
+        document.querySelector("#stop").onclick = function () {
+          self.stopTimer.apply(self);
+        };
+      },
+      resetVariables: function (mins, secs, started) {
+        this.minutes = mins;
+        this.seconds = secs;
+        this.started = started;
+        this.fillerIncrement = 200 / (this.minutes * 60);
+        this.fillerHeight = 0;
+      },
+      startWork: function () {
+        this.resetVariables(25, 0, true);
+      },
+      startShortBreak: function () {
+        this.resetVariables(5, 0, true);
+      },
+      startLongBreak: function () {
+        this.resetVariables(15, 0, true);
+      },
+      stopTimer: function () {
+        this.resetVariables(25, 0, false);
+        this.updateDom();
+      },
+      toDoubleDigit: function (num) {
+        if (num < 10) {
+          return "0" + parseInt(num, 10);
+        }
+        return num;
+      },
+      updateDom: function () {
+        this.minutesDom.innerHTML = this.toDoubleDigit(this.minutes);
+        this.secondsDom.innerHTML = this.toDoubleDigit(this.seconds);
+        this.fillerHeight = this.fillerHeight + this.fillerIncrement;
+        this.fillerDom.style.height = this.fillerHeight + "px";
+      },
+      intervalCallback: function () {
+        if (!this.started) return false;
+        if (this.seconds == 0) {
+          if (this.minutes == 0) {
+            this.timerComplete();
+            return;
           }
-          return num;
-        },
-        updateDom: function () {
-          this.minutesDom.innerHTML = this.toDoubleDigit(this.minutes);
-          this.secondsDom.innerHTML = this.toDoubleDigit(this.seconds);
-          this.fillerHeight = this.fillerHeight + this.fillerIncrement;
-          this.fillerDom.style.height = this.fillerHeight + "px";
-        },
-        intervalCallback: function () {
-          if (!this.started) return false;
-          if (this.seconds == 0) {
-            if (this.minutes == 0) {
-              this.timerComplete();
-              return;
-            }
-            this.seconds = 59;
-            this.minutes--;
-          } else {
-            this.seconds--;
-          }
-          this.updateDom();
-        },
-        timerComplete: function () {
-          this.started = false;
-          this.fillerHeight = 0;
-        },
-      };
-      window.onload = function () {
-        pomodoro.init();
-      };
-    </script>
-  
-    <div class="logo">
-      <p>Logo goes here</p>
+          this.seconds = 59;
+          this.minutes--;
+        } else {
+          this.seconds--;
+        }
+        this.updateDom();
+      },
+      timerComplete: function () {
+        this.started = false;
+        this.fillerHeight = 0;
+      },
+    };
+    window.onload = function () {
+      pomodoro.init();
+    };
+  </script>
+
+<div class = "queue-container"></div>
+
+
+<!-- <div class="container-fluid" id="wrapper">
+			
+  <div class="row">
+    <div class="col-lg-4 col-lg-offset-4" id="content">
+      <h2>WHAT DO YOU WANT TO DO TODAY?</h2>
+      
+      <form action="{% url 'add' %}" method="POST" role="form">
+        {% csrf_token %}
+        <div class="form-group">
+          <div class="input-group">
+            {{ form.text }}
+            <span class="input-group-btn">
+              <button type="submit" class="btn btn-default" id="add-btn">ADD</button>
+            </span>
+          </div>
+        </div>
+      </form>
+
+      <div class="row t10">
+        <div class="col-lg-12">
+          <div class="btn-toolbar">
+            <div class="btn-group">
+              <a href="{% url 'deletecomplete' %}"><button type="button" class="btn btn-warning">
+                <i class="glyphicon glyphicon-trash"></i> DELETE COMPLETED
+              </button></a>
+            </div>
+            <div class="btn-group">
+              <a href="{% url 'deleteall' %}"><button type="button" class="btn btn-warning">
+                <i class="glyphicon glyphicon-trash"></i> DELETE ALL
+              </button></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <ul class="list-group t20">
+        {% for todo in todo_list %}
+          {% if todo.complete %}
+          <li class="list-group-item todo-completed">{{ todo.text }}</li>
+          {% else %}
+          <a href="{% url 'complete' todo.id %}"><li class="list-group-item">{{ todo.text }}</li></a>
+          {% endif %}
+        {% endfor %}
+      </ul>
     </div>
+  </div> -->
+
+
+  <div class="logo">
+    <img src ="{%static '/images/logo1'%}">
+  </div>
 </body>
 {% endblock content%}

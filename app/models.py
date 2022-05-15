@@ -5,6 +5,16 @@ from django.contrib.auth.models import User
 from django.db.models.fields import *
 from django.template.defaultfilters import slugify
 
+class Todo(models.Model):
+    text = models.CharField(max_length=50)
+    complete = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.text
+    
+    class Meta:
+       app_label = 'app' # mandatory label: declare for all models
+
 # #Add Classes Here:
 # class User_Login(models.Model):
 #     # Add Entities Here:
