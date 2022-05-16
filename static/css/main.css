@@ -1,5 +1,5 @@
-body{
-  background-color: #FBEFDF;
+body {
+  background-color: #fbefdf;
   font-family: Nunito;
 }
 
@@ -11,7 +11,7 @@ body{
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #8D6852;
+  background-color: #8d6852;
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
@@ -38,11 +38,15 @@ body{
   margin-left: 50px;
 }
 
-.logo {
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.navbar{
+  width: 100vw;
+  height: 50px;
 }
+.logo {
+  height: 100%;
+  width: auto;
+}
+
 
 /* in this container we will add the tasks */
 div.l {
@@ -103,7 +107,7 @@ div.l {
 }
 
 #filler {
-  background: #8D6852;
+  background: #8d6852;
   height: 0px;
   width: 200px;
   position: absolute;
@@ -142,7 +146,7 @@ div.l {
 }
 
 #filler {
-  background: #8D6852;
+  background: #8d6852;
   height: 0px;
   width: 200px;
   position: absolute;
@@ -172,55 +176,43 @@ div.l {
 
 #buttons button#stop {
   background: #f36188;
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    border: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
 }
 
-
-.navbar {
-    width: 100vw;
-    height: 50px;
-    background: red;
-}
 
 .content {
-    width: 100%;
-    height: fit-content;
-    min-height: 100vh;
-    background: yellow;
+  width: 100%;
+  height: fit-content;
+  min-height: 100vh;
+  background: yellow;
 
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    border: solid black 3px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  border: solid black 3px;
 }
 
-
 .columns {
-    width: 300px;
-    height: 700px;
+  width: 300px;
+  height: 700px;
 
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 
-    background-color: green;
-    border: solid black 3px;
-    padding: 15px;
-
+  background-color: green;
+  border: solid black 3px;
+  padding: 15px;
 }
 
 .column {
-    width: 300px;
-    height: 700px;
-    background-color: blue;
-    border: solid black 3px;
+  width: 300px;
+  height: 700px;
+  background-color: blue;
+  border: solid black 3px;
 }
-
-
-
-
 
 /* #wrapper {
 	margin-top: 10% !important;

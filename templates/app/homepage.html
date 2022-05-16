@@ -21,20 +21,27 @@
 <body>
   <title>Homepage</title>
   {% endblock headers %} {% block content %}
-  <div id="mySidenav" class="sidenav">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
-      >&times;
-    </a>
-    <a href="{% url 'homepage' %}">Home</a>
-    <a href="{% url 'settings' %}">Settings</a>
-    <a href="{% url 'account' %}">Account</a>
-    <a href="{% url 'notes' %}">Notes Page</a>
-    <a href="#">Planner</a>
+
+  <div class="navbar">
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+        >&times;
+      </a>
+      <a href="{% url 'homepage' %}">Home</a>
+      <a href="{% url 'settings' %}">Settings</a>
+      <a href="{% url 'account' %}">Account</a>
+      <a href="{% url 'notes' %}">Notes Page</a>
+      <a href="#">Planner</a>
+    </div>
+  
+    <span style="font-size: 30px; cursor: pointer" onclick="openNav()"
+      >&#9776;</span
+    >
+    
+    <img class = "logo" src ="{%static '/images/logo1'%}">
+    
   </div>
 
-  <span style="font-size: 30px; cursor: pointer" onclick="openNav()"
-    >&#9776;</span
-  >
 
   <script>
     function openNav() {
@@ -155,7 +162,6 @@
 
 <div class = "queue-container"></div>
 
-
 <!-- <div class="container-fluid" id="wrapper">
 			
   <div class="row">
@@ -204,8 +210,5 @@
   </div> -->
 
 
-  <div class="logo">
-    <img src ="{%static '/images/logo1'%}">
-  </div>
 </body>
 {% endblock content%}
