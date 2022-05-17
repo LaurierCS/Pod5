@@ -1,0 +1,38 @@
+{% extends "base.html" %} {% load static %}
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}" />
+  <!-- navbar -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- font -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Nunito"
+    rel="stylesheet"
+  />
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="{% static 'todo/bs/css/flatly.min.css' %}" />
+  <link rel="stylesheet" href="{% static 'todo/styles.css' %}" />
+</head>
+
+{% block headers %}
+<body>
+  <title>Login</title>
+  {% endblock headers %} {% block content %}
+
+  <div class = "Login" id = "wrapper">
+    <div id = "Header">Login</div>
+    <form method = "POST" action="{% url 'login' %}">
+        {% csrf_token %}
+        
+        <button class="btn btn-primary" type="submit">Login</button>
+    </form>
+    <!--Login Link-->
+    <p class="text-center">If you don't have a account, <a href="/register">Register</a> instead.</p>
+  </div>
+  
+
+</body>
+{% endblock content%}

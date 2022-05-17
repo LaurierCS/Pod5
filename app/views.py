@@ -1,3 +1,4 @@
+from re import L
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
@@ -19,13 +20,39 @@ def homepage(request):
 
     return render(request, template_name, context)
 
-# For Authentication and Notoin
-def loginpage(request):
-    
-    template_name = "app/loginpage.html"
+def register(request):
+    if request.method == "POST":
+        user_form = User_Registration(request.POST)
+        if user_form.is_valid():
+            user = user_form.save()
+            messages.success(request, "Registration successful." )
+            return redirect("login")
+        messages.error(request, "Unsuccessful registration. Invalid information.")
 
-    return render(request, template_name)
+    else:
+        user_form = User_Registration()
 
+    context = {"register_form": user_form}
+
+    return render(request, "app/login/register.html", context)
+
+def login(request):
+    if request.method == "POST":
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(request, username = username, password = password)
+
+        if user is not None:
+            login(request, user)
+            print("Logged In")
+            return redirect("")
+
+        else:
+            messages.info(request, 'Username or password is incorrect')
+
+    return render(request, "app/login/login.html")
+
+# Task Methods:
 @require_POST
 def addTodo(request):
     form = TodoForm(request.POST)
