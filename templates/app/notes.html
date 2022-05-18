@@ -7,16 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <link rel="stylesheet" type="text/css" href="../../static/css/notes.css" />
-    <!-- navbar -->
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- font -->
-  <link
-    href="https://fonts.googleapis.com/css?family=Nunito"
-    rel="stylesheet"
-  />
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
+    <div class="logo">
+      <img src="{%static '/images/grindlogo'%}" width="320" height="100" />
+    </div>
+
     <div id="mySidenav" class="sidenav">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
         >&times;
@@ -48,7 +49,6 @@
     <script>
       const notesContainer = document.getElementById("app");
       const addNoteButton = notesContainer.querySelector(".add-note");
-      const deleteNote = notesContainer.querySelector(".delete-note");
 
       getNotes().forEach((note) => {
         const noteElement = createNoteElement(note.id, note.content);
@@ -70,7 +70,7 @@
 
         element.classList.add("note");
         element.value = content;
-        element.placeholder = "Empty Sticky Note";
+        element.placeholder = " Empty Sticky Note (double click to delete)";
 
         element.addEventListener("change", () => {
           updateNote(id, element.value);
@@ -121,9 +121,5 @@
         notesContainer.removeChild(element);
       }
     </script>
-
-    <div class="logo">
-      <img src="{%static '/images/grindlogo'%}" width="320" height="100" />
-    </div>
   </body>
 </html>
