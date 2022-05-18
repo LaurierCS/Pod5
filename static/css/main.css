@@ -230,3 +230,60 @@ input[type="tel"] {
   border: 1px solid #000;
   border-radius: 3px;
 }
+
+
+input[type=text], input[type=password]{
+	width:70%;
+	padding:15px;
+	margin:5px 0 22px 0;
+	display:inline-block;
+	border:none;
+	background:#FFF;
+}
+input[type=text]:focus,input[type=password]:focus{
+	background-color:#666;
+	outline:none;
+}
+hr{
+	border:1px solid #000;
+}
+.registerbtn{
+	background-color:#C7B396;
+	color:rgb(0, 0, 0);
+	font-size: 15px;
+	padding: 10px 20px;
+	margin:8px 0;
+	border:none;
+	cursor:pointer;
+	width:70%;
+	opacity:0.9;
+}
+.registerbtn:hover{
+	background-color:#977644;
+	color:rgb(0, 0, 0);
+}
+.btn{
+	background-color:#C7B396;
+	color:rgb(0, 0, 0);
+	font-size: 15px;
+	padding: 10px 20px;
+	margin:8px 0;
+	border:none;
+	cursor:pointer;
+	width:70%;
+	opacity:0.9;
+}
+.btn:hover{
+	background-color:#977644;
+	color:rgb(0, 0, 0);
+}
+a{
+	color: dodgerblue;
+}
+#section1 {
+    height: 800px;
+}
+  
+#section2 {
+    height: 800px;
+}
