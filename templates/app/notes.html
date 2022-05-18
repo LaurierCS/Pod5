@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,9 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <link rel="stylesheet" type="text/css" href="../../static/css/notes.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
+    <div class="logo">
+      <img src="{%static '/images/grindlogo'%}" width="320" height="100" />
+    </div>
+
     <div id="mySidenav" class="sidenav">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
         >&times;
@@ -112,9 +121,5 @@
         notesContainer.removeChild(element);
       }
     </script>
-
-    <div class="logo">
-      <p>Logo goes here</p>
-    </div>
   </body>
 </html>
