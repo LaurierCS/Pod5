@@ -1,14 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
+{% load static %}
 <head>
-    <link rel="stylesheet" type="text/css" href="../../static/css/signup.css">
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link
+    href="https://fonts.googleapis.com/css?family=Nunito"
+    rel="stylesheet"
+  />
 </head>
 
 <body>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+          >&times;
+        </a>
+        <a href="{% url 'homepage' %}">Home</a>
+        <a href="{% url 'settings' %}">Settings</a>
+        <a href="{% url 'account' %}">Account</a>
+        <a href="{% url 'notes' %}">Notes Page</a>
+        <a href="#">Planner</a>
+      </div>
+    
+      <span style="font-size: 30px; cursor: pointer" onclick="openNav()"
+        >&#9776;</span
+      >
+    
+      <script>
+        function openNav() {
+          document.getElementById("mySidenav").style.width = "250px";
+        }
+        function closeNav() {
+          document.getElementById("mySidenav").style.width = "0";
+        }
+      </script>
+
+<div class="logo">
+    <img src ="{%static '/images/grindlogo'%}" width="320" height="100">
+  </div>
+  
+
     <form style="max-width:500px;margin:auto">
-        <h1><center>Register</center></h1>
+        <br>
+        <br>
+        <h1>Register</h1>
         <p>Let's get you all set up so you can verify your personal account and begin setting up your profile.</p>
         <hr>
 
