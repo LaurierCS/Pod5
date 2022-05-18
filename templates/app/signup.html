@@ -1,52 +1,100 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <link rel="stylesheet" type="text/css" href="../../static/css/signup.css">
+  <head>
+    <link rel="stylesheet" type="text/css" href="../../static/css/signup.css" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-</head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- font -->
+  <link
+  href="https://fonts.googleapis.com/css?family=Nunito"
+  rel="stylesheet"
+/>
+  </head>
 
-<body>
-    <form style="max-width:500px;margin:auto">
-        <h1><center>Register</center></h1>
-        <p>Let's get you all set up so you can verify your personal account and begin setting up your profile.</p>
-        <hr>
+  <body>
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+        >&times;
+      </a>
+      <a href="{% url 'homepage' %}">Home</a>
+      <a href="{% url 'settings' %}">Settings</a>
+      <a href="{% url 'account' %}">Account</a>
+      <a href="{% url 'notes' %}">Notes Page</a>
+      <a href="#">Planner</a>
+    </div>
 
-        <input type="text" placeholder="Enter Name" required><br>
+    <span style="font-size: 30px; cursor: pointer" onclick="openNav()"
+      >&#9776;</span
+    >
 
-        <input type="text" placeholder="Enter Email" required><br>
-    
-        <input type="password" placeholder="Enter Password" required><br>
+    <script>
+      function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+      }
+      function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+      }
+    </script>
 
-        <input type="checkbox" id="terms" name="terms" value="terms">
-        <label for="terms"> I agree to the Terms & Conditions</label><br>
+    <div class="logo">
+      <img src="{%static '/images/grindlogo'%}" width="320" height="100" />
+    </div>
 
-        <button type="submit1" class="registerbtn">Create My Account</button>
-        <div class="main" id="section1">
-            <p>Already have an account? <a href="#section2">Sign in</a>.</p>
-        </div>
+    <form style="max-width: 500px; margin: auto">
+      <h1><center>Register</center></h1>
+      <p>
+        Let's get you all set up so you can verify your personal account and
+        begin setting up your profile.
+      </p>
+      <hr />
+
+      <input type="text" placeholder="Enter Name" required /><br />
+
+      <input type="text" placeholder="Enter Email" required /><br />
+
+      <input type="password" placeholder="Enter Password" required /><br />
+
+      <input type="checkbox" id="terms" name="terms" value="terms" />
+      <label for="terms"> I agree to the Terms & Conditions</label><br />
+
+      <button type="submit1" class="registerbtn">Create My Account</button>
+      <div class="main" id="section1">
+        <p>Already have an account? <a href="#section2">Sign in</a>.</p>
+      </div>
     </form>
 
-    <form action="/action_page.php" style="max-width:500px;margin:auto">
-        <h1>Sign in</h1>
-        <p>Login to manage your account</p>
-        <hr>
+    <form action="/action_page.php" style="max-width: 500px; margin: auto">
+      <h1>Sign in</h1>
+      <p>Login to manage your account</p>
+      <hr />
 
-        <div class="input-container">
-            <i class="fa fa-envelope icon"></i>
-            <input class="input-field" type="text" placeholder="Email" name="email">
-        </div>
-            
-        <div class="input-container">
-            <i class="fa fa-key icon"></i>
-            <input class="input-field" type="password" placeholder="Password" name="psw">
-        </div>
-        <input type="checkbox" id="terms" name="terms" value="terms">
-        <label for="terms"> Remember me</label><br>
+      <div class="input-container">
+        <i class="fa fa-envelope icon"></i>
+        <input
+          class="input-field"
+          type="text"
+          placeholder="Email"
+          name="email"
+        />
+      </div>
 
-        <button type="submit" class="btn">Sign in</button>
-        <div class="main" id="section2">
-            <p>Don't have an account? <a href="#section1">Register</a>.</p>
-        </div>
+      <div class="input-container">
+        <i class="fa fa-key icon"></i>
+        <input
+          class="input-field"
+          type="password"
+          placeholder="Password"
+          name="psw"
+        />
+      </div>
+      <input type="checkbox" id="terms" name="terms" value="terms" />
+      <label for="terms"> Remember me</label><br />
+
+      <button type="submit" class="btn">Sign in</button>
+      <div class="main" id="section2">
+        <p>Don't have an account? <a href="#section1">Register</a>.</p>
+      </div>
     </form>
-</body>
+  </body>
+</html>
