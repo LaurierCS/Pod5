@@ -1,6 +1,7 @@
 body {
   margin: 0;
   background: #cfa57e;
+  font-family: Nunito;
 }
 
 #app {
@@ -19,7 +20,7 @@ body {
   border-radius: 10px;
   box-shadow: 0 0 7px rgba(0, 0, 0, 0.15);
   resize: none;
-  font-family: sans-serif;
+  font-family: Nunito;
   font-size: 16px;
 }
 .note:hover {
@@ -79,8 +80,8 @@ body {
 }
 
 .logo {
-    position: absolute;
-    top: 3%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding-top: 50px;
   }
