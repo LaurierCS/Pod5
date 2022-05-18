@@ -8,7 +8,6 @@ from django.views.decorators.http import require_POST
 
 from .forms import *
 from .models import Todo
-from .models import *
 
 
 def homepage(request):
