@@ -127,14 +127,32 @@ div.l {
 #buttons button#shortBreak {
   background: #75f1a4;
 }
+#buttons button#shortBreak:hover {
+  background: none;
+  border: solid white;
+  transition: all 0.1s;
+  color: white;
+}
 
 
 #buttons button#longBreak {
   background: #69c66b;
 }
+#buttons button#longBreak:hover {
+  background: none;
+  border: solid white;
+  transition: all 0.1s;
+  color: white;
+}
 
 #buttons button#stop {
   background: #f36188;
+}
+#buttons button#stop:hover {
+  background: none;
+  border: solid white;
+  transition: all 0.1s;
+  color: white;
 }
 
 #time {
@@ -164,36 +182,14 @@ div.l {
   height: 50px;
   border-radius: 50px;
 }
-
-#buttons button#shortBreak {
-  background: #75f1a4;
-}
-
-#buttons button#longBreak {
-  background: #69c66b;
-}
-
-#buttons button#stop {
-  background: #f36188;
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    border: 0;
+#buttons button:hover {
+  background: none;
+  border: solid white;
+  transition: all 0.1s;
+  color: white;
 }
 
 
-
-.content {
-    width: 100%;
-    height: fit-content;
-    min-height: 100vh;
-    background: yellow;
-
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    border: solid black 3px;
-}
 
 label {
   color: rgb(0, 0, 0);
@@ -213,8 +209,10 @@ label {
   font-size: 17px;
 }
 .btn:hover {
-  background-color: #333;
-  color: #fff;
+  background: none;
+  border: solid white;
+  transition: all 0.1s;
+  color: white;
 }
 input[type="text"] {
   width: 100%;
@@ -230,6 +228,8 @@ input[type="tel"] {
   border: 1px solid #000;
   border-radius: 3px;
 }
+
+
 
 
 input[type=text], input[type=password]{
@@ -286,4 +286,16 @@ a{
   
 #section2 {
     height: 800px;
+}
+
+
+.todolist {
+  width: 40%;
+  padding-left: 50px;
+  padding-top: 60px;
+  align-content:center;
+}
+
+h1 {
+  font-size: 40px;
 }
