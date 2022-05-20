@@ -32,8 +32,8 @@ class UserUpdateForm(forms.ModelForm):
         fields = ['email']
 
 class TodoForm(forms.Form):
-    text = forms.CharField()
+    title = forms.CharField()
 
     class Meta:
         model = Todo
-        fields = ['text']
+        fields = ['title, description']
