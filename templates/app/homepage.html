@@ -24,13 +24,11 @@
     <a href="{% url 'settings' %}">Settings</a>
     <a href="{% url 'account' %}">Account</a>
     <a href="{% url 'notes' %}">Notes Page</a>
-    <a href="#">Planner</a>
+    <a href="{% url 'progress' %}">Progress</a>
   </div>
-
   <span style="font-size: 30px; cursor: pointer" onclick="openNav()"
     >&#9776;</span
   >
-
   <script>
     function openNav() {
       document.getElementById("mySidenav").style.width = "250px";
@@ -149,7 +147,26 @@
   </script>
 
   <div class="logo">
-    <img src ="{%static '/images/logo1'%}">
+    <img src="{%static '/images/grindlogo'%}" width="320" height="100" />
   </div>
+
+  <div class="todolist">
+    <h1><center>TO-DO LIST</center></h1>
+    <form action="/add task/" method="post">
+      <input type="text" name="content" />
+      <input type="submit" value="Add Todo Item" />
+    </form>
+    <ul>
+      {% for i in all_items %}
+      <li>
+        {{i.tasks}}
+        <form action="/deleteTodoItem/{{i.id}}/" method="post">
+          <input type="submit" value="Delete" />
+        </form>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+
 </body>
 {% endblock content%}

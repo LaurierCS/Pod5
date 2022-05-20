@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/progress.css' %}"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+        >&times;
+      </a>
+      <a href="{% url 'homepage' %}">Home</a>
+      <a href="{% url 'settings' %}">Settings</a>
+      <a href="{% url 'account' %}">Account</a>
+      <a href="{% url 'notes' %}">Notes Page</a>
+      <a href="{% url 'progress' %}">Progress</a>
+    </div>
+    <span style="font-size: 30px; cursor: pointer" onclick="openNav()"
+      >&#9776;</span
+    >
+    <script>
+      function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+      }
+      function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+      }
+    </script>
+
+    <div class="logo">
+      <img src="{%static '/images/grindlogo'%}" width="320" height="100" />
+    </div>
+
+    <h1>PROFILE NAME</h1>
+    <div class="container">
+      <form action="/action_page.php">
+        <label>Tasks worked on so far:</label>
+        <div class="input">
+          <input type="number" id="quantity" name="quantity" /><br />
+        </div>
+        <div class="pie animate" style="--p: 90; --c: #ae6e32">90%</div>
+        <br />
+        <input type="reset" value="Reset" />
+        <div class="submit_button">
+          <input type="submit" value="Submit" />
+        </div>
+      </form>
+    </div>
+    <div class="barcontainer">
+      <div class="barcontainerheader"></div>
+      <div class="bar" style="height: 12%"></div>
+      <div class="bar" style="height: 16%"></div>
+      <div class="bar" style="height: 22%"></div>
+      <div class="bar" style="height: 30%"></div>
+      <div class="bar" style="height: 45%"></div>
+      <div class="bar" style="height: 100%"></div>
+      <div class="bar" style="height: 70%"></div>
+      <span class="label mon">MON</span>
+      <span class="label tue">TUE</span>
+      <span class="label wed">WED</span>
+      <span class="label thur">THUR</span>
+      <span class="label fri">FRI</span>
+      <span class="label sat">SAT</span>
+      <span class="label sun">SUN</span>
+    </div>
+  </body>
+</html>

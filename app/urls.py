@@ -12,4 +12,5 @@ urlpatterns = [
     path('homepage',views.homepage, name='homepage'),
     path('settings',views.settings, name='settings'),
     path('account',views.account, name='account'),
+    path('progress',views.progress, name='progress')
 ]
