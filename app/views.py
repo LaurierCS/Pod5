@@ -69,3 +69,6 @@ def settings(request):
 
 def account(request):
     return render(request, 'app/signup.html')
+
+def progress(request):
+    return render(request, 'app/progress.html')

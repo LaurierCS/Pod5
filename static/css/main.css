@@ -44,20 +44,6 @@ body{
   transform: translate(-50%, -50%);
 }
 
-/* in this container we will add the tasks */
-div.l {
-  left: 20%;
-  top: 100px;
-  width: 27%;
-  height: fit-content;
-  border: 5px solid #ffff00;
-  padding: 10px;
-
-  position: absolute;
-  justify-content: center;
-  align-items: flex-start;
-}
-
 /* the timer */
 #container {
   position: absolute;
@@ -233,7 +219,7 @@ input[type="tel"] {
 
 
 input[type=text], input[type=password]{
-	width:70%;
+	width:100%;
 	padding:15px;
 	margin:5px 0 22px 0;
 	display:inline-block;
@@ -255,7 +241,7 @@ hr{
 	margin:8px 0;
 	border:none;
 	cursor:pointer;
-	width:70%;
+	width:100%;
 	opacity:0.9;
 }
 .registerbtn:hover{
@@ -270,15 +256,12 @@ hr{
 	margin:8px 0;
 	border:none;
 	cursor:pointer;
-	width:70%;
+	width:100%;
 	opacity:0.9;
 }
 .btn:hover{
 	background-color:#977644;
 	color:rgb(0, 0, 0);
-}
-a{
-	color: dodgerblue;
 }
 #section1 {
     height: 800px;
@@ -293,9 +276,25 @@ a{
   width: 40%;
   padding-left: 50px;
   padding-top: 60px;
-  align-content:center;
 }
+
 
 h1 {
   font-size: 40px;
+}
+
+.submit{
+  background-color:#C7B396;
+	color:rgb(0, 0, 0);
+	font-size: 15px;
+	padding: 10px 20px;
+	margin:8px 0;
+	border:none;
+	cursor:pointer;
+	width:100%;
+	opacity:0.9;
+}
+.submit:hover{
+  background-color:#977644;
+	color:rgb(0, 0, 0);
 }
