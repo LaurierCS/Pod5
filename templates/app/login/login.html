@@ -26,11 +26,11 @@
     <div id = "Header">Login</div>
     <form method = "POST" action="{% url 'login' %}">
         {% csrf_token %}
-        
+        {{login_form}}
         <button class="btn btn-primary" type="submit">Login</button>
     </form>
     <!--Login Link-->
-    <p class="text-center">If you don't have a account, <a href="/register">Register</a> instead.</p>
+    <p class="text-center">If you don't have a account, <a href="{% url 'register' %}">Register</a> instead.</p>
   </div>
   
 

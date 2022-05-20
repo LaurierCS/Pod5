@@ -57,8 +57,11 @@ class Notion_DB(models.Model):
 
 # Todo:
 class Todo(models.Model):
-    text = models.CharField(max_length=50)
-    complete = models.BooleanField(default=False)
+    email = models.ForeignKey(User, on_delete=models.CASCADE)
+    taskID = models.AutoField(primary_key=True)
+    title = models.CharField(max_length=50)
+    description = models.CharField(max_length=500)
+    completed = models.BooleanField(default=False)
 
     def __str__(self):
         return self.text
@@ -66,3 +69,5 @@ class Todo(models.Model):
     class Meta:
        app_label = 'app' # mandatory label: declare for all models
 
+    # Set and Get Methods:
+    

@@ -5,8 +5,8 @@ urlpatterns = [
 
     # Page Urls
     path('', views.homepage, name='index'),
-    path('login', views.register, name = 'login'),
-    path('register', views.register, name = 'register')
+    path('login', views.loginView, name = 'login'),
+    path('register', views.register, name = 'register'),
 
     # Task Urls
     path('add',views.addTodo,name='add'),

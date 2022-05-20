@@ -7,7 +7,7 @@ from .models import *
 
 # User Login Form:
 class User_Registration(UserCreationForm):
-    email = forms.EmailField(required=True, unique = True)
+    email = forms.EmailField(required=True)
     first_name = forms.CharField()
     last_name = forms.CharField()
 

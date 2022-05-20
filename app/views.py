@@ -4,6 +4,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import AuthenticationForm
 from django.views.decorators.http import require_POST
 
 from .forms import *
@@ -36,21 +37,29 @@ def register(request):
 
     return render(request, "app/login/register.html", context)
 
-def login(request):
+def loginView(request):
     if request.method == "POST":
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        user = authenticate(request, username = username, password = password)
-
-        if user is not None:
-            login(request, user)
-            print("Logged In")
-            return redirect("")
-
+        form = AuthenticationForm(request, data=request.POST)
+    
+        if form.is_valid():
+            username = request.POST.get('username')
+            password = request.POST.get('password')
+            user = authenticate(request, username = username, password = password)
+    
+            if user is not None:
+                login(request, user)
+                messages.info(request, "you are logged in as {username}")
+                return redirect("index")
+    
+            else:
+                messages.info(request, "Username or password is incorrect")
+    
         else:
-            messages.info(request, 'Username or password is incorrect')
-
-    return render(request, "app/login/login.html")
+            messages.info(request, "Invalid username or password.")
+    
+    form = AuthenticationForm()
+    context = {"login_form": form}
+    return render(request, "app/login/login.html", context)
 
 # Task Methods:
 @require_POST
