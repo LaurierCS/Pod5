@@ -1,40 +1,74 @@
-<!DOCTYPE html>
-<html lang="en">
+{% load static %}
 <head>
-    <link rel="stylesheet" type="text/css" href="../../static/css/settings.css">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}" />
+  <!-- font -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Nunito"
+    rel="stylesheet"
+  />
 </head>
 
 <body>
-    <div class="row">
-        <div class="container">
-            <h1>Account and settings</h1>
-            <form>
-                <label for="fname">First Name</label>
-                <input type="text" id="fname" name="firstname">
-                <label for="lname">Last name</label>
-                <input type="text" id= "lname" name="lastname">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name">
-                <input type="save1" value="Save Changes" class="btn">
-            </form>
-        </div>
-        <div class="container1">
-            <h1>Notion Database Settings</h1>
-            <form>
-                <label for="uname">Notion username</label>
-                <input type="text" id="uname" name="username">
-                <label for="dbid">Database ID</label>
-                <input type="text" id= "dbid" name="databaseid">
-                <label for="x">X</label>
-                <input type="text" id="x" name="x">
-                <label for="y">Y</label>
-                <input type="text" id="y" name="y">
-                <label for="z">Z</label>
-                <input type="text" id="z" name="z">
-                <input type="save1" value="Save Changes" class="btn">
-            </form>
-        </div>
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+      >&times;
+    </a>
+    <a href="{% url 'homepage' %}">Home</a>
+    <a href="{% url 'settings' %}">Settings</a>
+    <a href="{% url 'account' %}">Account</a>
+    <a href="{% url 'notes' %}">Notes Page</a>
+    <a href="{% url 'progress' %}">Progress</a>
+  </div>
+
+  <span style="font-size: 30px; cursor: pointer" onclick="openNav()"
+    >&#9776;</span
+  >
+
+  <script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "250px";
+    }
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
+  </script>
+
+  <div class="logo">
+    <img src="{%static '/images/grindlogo'%}" width="320" height="100" />
+  </div>
+
+  <div class="row">
+    <div class="container">
+      <h1>Account and settings</h1>
+      <form>
+        <label for="fname">First Name</label>
+        <input type="text" id="fname" name="firstname" />
+        <label for="lname">Last name</label>
+        <input type="text" id="lname" name="lastname" />
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" />
+        <input type="save1" value="Save Changes" class="btn" />
+      </form>
     </div>
+    <div class="container1">
+      <h1>Notion Database Settings</h1>
+      <form>
+        <label for="uname">Notion username</label>
+        <input type="text" id="uname" name="username" />
+        <label for="dbid">Database ID</label>
+        <input type="text" id="dbid" name="databaseid" />
+        <label for="x">X</label>
+        <input type="text" id="x" name="x" />
+        <label for="y">Y</label>
+        <input type="text" id="y" name="y" />
+        <label for="z">Z</label>
+        <input type="text" id="z" name="z" />
+        <input type="save1" value="Save Changes" class="btn" />
+      </form>
+    </div>
+  </div>
 </body>

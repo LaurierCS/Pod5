@@ -29,16 +29,7 @@ class UserUpdateForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ['username', 'email']
-
-
-class EditProfileForm(forms.ModelForm):
-    username = forms.CharField(required=True)
-
-    class Meta:
-        model = Todo
-        fields = ['text']
-
+        fields = ['email']
 
 class TodoForm(forms.Form):
     text = forms.CharField()

@@ -1,6 +1,6 @@
 # Imports
 from email.policy import default
-from tkinter import CASCADE
+# from tkinter import CASCADE
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.fields import *
@@ -21,8 +21,6 @@ class User_Data(models.Model):
         app_label = 'app'
 
     # General Functions
-    def __str__(self):
-        return "debug output"
 
     # Model Functions
 
@@ -37,8 +35,6 @@ class User_Rewards(models.Model):
         app_label = 'app'
 
     # General Functions:
-    def __str__(self):
-        return "debug output"
 
     # Model Functions:
 
@@ -64,7 +60,7 @@ class Todo(models.Model):
     completed = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.text
+        return self.title
     
     class Meta:
        app_label = 'app' # mandatory label: declare for all models

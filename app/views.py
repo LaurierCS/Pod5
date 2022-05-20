@@ -83,3 +83,19 @@ def deleteCompleted(request):
 def deleteAll(request):
     Todo.objects.all().delete()
     return redirect('index')
+
+
+def notes(request):
+    return render(request, 'app/notes.html')
+
+def homepage(request):
+    return render(request, 'app/homepage.html')
+
+def settings(request):
+    return render(request, 'app/settings.html')
+
+def account(request):
+    return render(request, 'app/signup.html')
+
+def progress(request):
+    return render(request, 'app/progress.html')

@@ -1,20 +1,15 @@
-{% extends "base.html" %} {% load static %}
+{% load static %}
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}" />
-  <!-- navbar -->
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <!-- font -->
   <link
     href="https://fonts.googleapis.com/css?family=Nunito"
     rel="stylesheet"
   />
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="{% static 'todo/bs/css/flatly.min.css' %}" />
-  <link rel="stylesheet" href="{% static 'todo/styles.css' %}" />
 </head>
 
 {% block headers %}
@@ -25,16 +20,15 @@
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
       >&times;
     </a>
-    <a href="homepage.html">Home</a>
-    <a href="#">Planner</a>
-    <a href="settings.html">Settings</a>
-    <a href="login.html">Account</a>
+    <a href="{% url 'homepage' %}">Home</a>
+    <a href="{% url 'settings' %}">Settings</a>
+    <a href="{% url 'account' %}">Account</a>
+    <a href="{% url 'notes' %}">Notes Page</a>
+    <a href="{% url 'progress' %}">Progress</a>
   </div>
-
   <span style="font-size: 30px; cursor: pointer" onclick="openNav()"
     >&#9776;</span
   >
-
   <script>
     function openNav() {
       document.getElementById("mySidenav").style.width = "250px";
@@ -56,7 +50,7 @@
         <div id="filler"></div>
       </div>
 
-      <div class = "buttons" id="buttons">
+      <div id="buttons">
         <button id="work">work</button>
         <button id="shortBreak">short break</button>
         <button id="longBreak">long break</button>
@@ -64,30 +58,6 @@
       </div>
     </div>
   </div>
-
-  <div class = "todo_container" id = "content">
-    
-    <!--Task Queue-->
-    <div class = "task_queue" id = "wrapper">
-      <!--Displaying Tasks-->
-      <div class = "task_container" id = "wrapper">
-        
-      </div>
-    </div>   
-    
-    <!--Form Input-->
-    <div class = "task_input" id = "wrapper">
-      <form method = "POST">
-        {% csrf_token %}
-        <div class = "form-group" id = "content">
-          <label id = "task_content">Description</label>
-          {{form.text}}
-        </div>
-      </form>
-    </div>
-  </div>
-
-
   <script>
     var pomodoro = {
       started: false,
@@ -177,7 +147,26 @@
   </script>
 
   <div class="logo">
-    <p>Logo goes here</p>
+    <img src="{%static '/images/grindlogo'%}" width="320" height="100" />
   </div>
+
+  <div class="todolist">
+    <h1><center>TO-DO LIST</center></h1>
+    <form action="/add task/" method="post">
+      <input type="text" name="content" />
+      <input type="submit" value="Add Todo Item" />
+    </form>
+    <ul>
+      {% for i in all_items %}
+      <li>
+        {{i.tasks}}
+        <form action="/deleteTodoItem/{{i.id}}/" method="post">
+          <input type="submit" value="Delete" />
+        </form>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+
 </body>
 {% endblock content%}
