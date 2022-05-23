@@ -151,21 +151,28 @@
   </div>
 
   <div class="todolist">
-    <h1><center>TO-DO LIST</center></h1>
-    <form action="/add task/" method="post">
+    <h1>TO-DO LIST</h1>
+
+    <!--Task Adding-->
+    <!-- <form action="/add task/" method="post">
+      {% csrf_token %}
       <input type="text" name="content" />
       <input type="submit" value="Add Todo Item" />
-    </form>
+    </form> -->
+
+    <!--Task Viewing-->
     <ul>
-      {% for i in all_items %}
+      <!-- {% for i in all_items %}
       <li>
         {{i.tasks}}
         <form action="/deleteTodoItem/{{i.id}}/" method="post">
           <input type="submit" value="Delete" />
         </form>
       </li>
-      {% endfor %}
+      {% endfor %} -->
+
     </ul>
+
   </div>
 
 </body>
