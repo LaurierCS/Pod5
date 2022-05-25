@@ -1,3 +1,7 @@
+* {
+  font-family: Nunito;
+}
+
 body{
   background-color: #FBEFDF;
   font-family: Nunito;
@@ -52,7 +56,9 @@ body{
   border-radius: 25px;
   width: 375px;
   margin: 20px auto;
-  padding: 20px;
+  padding: 30px;
+  padding-left: 15px;
+  padding-top: 15px;
   text-align: center;
   background: #cfa57e;
 }

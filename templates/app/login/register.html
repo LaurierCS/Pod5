@@ -1,4 +1,4 @@
-{% extends "base.html" %} {% load static %}
+{% load static %}
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -12,14 +12,38 @@
     href="https://fonts.googleapis.com/css?family=Nunito"
     rel="stylesheet"
   />
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="{% static 'todo/bs/css/flatly.min.css' %}" />
-  <link rel="stylesheet" href="{% static 'todo/styles.css' %}" />
 </head>
 
 {% block headers %}
 <body>
   <title>Register</title>
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+      >&times;
+    </a>
+    <a href="{% url 'homepage' %}">Home</a>
+    <a href="{% url 'settings' %}">Settings</a>
+    <a href="{% url 'account' %}">Account</a>
+    <a href="{% url 'notes' %}">Notes Page</a>
+    <a href="{% url 'progress' %}">Progress</a>
+  </div>
+  <span style="font-size: 30px; cursor: pointer" onclick="openNav()"
+    >&#9776;</span
+  >
+  <script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "250px";
+    }
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
+  </script>
+
+<div class="logo">
+  <img src="{%static '/images/grindlogo'%}" width="320" height="100" />
+</div>
+
+
   {% endblock headers %} {% block content %}
 
   <div class = "Registration" id = "wrapper">
