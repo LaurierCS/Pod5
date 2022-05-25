@@ -63,7 +63,8 @@ class Todo(models.Model):
         return self.title
     
     class Meta:
-       app_label = 'app' # mandatory label: declare for all models
+        app_label = 'app' # mandatory label: declare for all models
 
     # Set and Get Methods:
-    
+    # def completed(taskID):
+    #     pass

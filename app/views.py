@@ -6,10 +6,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
 from django.views.decorators.http import require_POST
-<<<<<<< Updated upstream
-=======
 from django.views import View, generic
->>>>>>> Stashed changes
 
 from .forms import *
 from .models import *
