@@ -4,6 +4,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from .models import *
+from django.forms import ModelForm
 
 # User Login Form:
 class User_Registration(UserCreationForm):
@@ -31,9 +32,9 @@ class UserUpdateForm(forms.ModelForm):
         model = User
         fields = ['email']
 
-class TodoForm(forms.Form):
-    title = forms.CharField()
+class TodoForm(forms.ModelForm):
+    title = forms.CharField()   
 
     class Meta:
         model = Todo
-        fields = ['title, description']
+        fields = ['title']

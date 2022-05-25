@@ -6,9 +6,12 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
 from django.views.decorators.http import require_POST
+<<<<<<< Updated upstream
+=======
+from django.views import View, generic
+>>>>>>> Stashed changes
 
 from .forms import *
-from .models import Todo
 from .models import *
 
 """
@@ -86,14 +89,15 @@ def progress(request):
 """
 Task Views
 """
-# View All Task Objs
-def todoView(request):
-    todoItems = Todo.objects.all()
-    context = {"todoObjects": todoItems}
-    return render(request, "app/todo/todo.html", context)
+# Create Task
+def taskPost(request):
+    if request.POST:
+        taskForm = TodoForm(request.POST)
+        if taskForm.is_valid():
+            taskForm.save()
+        return redirect("index")
+    return render(request, 'app/todo/task_upload.html', {'form': taskForm})
 
-def todoCreate(request):
-    userInput = request.POST['title']
-    new_item = Todo(title = userInput)
-    new_item.save()
-    return HttpResponseRedirect('/app/')
+class todoView(generic.ListView):
+    model = Todo
+    template_name = "app/todo/todo.html"
