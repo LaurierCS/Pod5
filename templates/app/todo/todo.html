@@ -1,22 +1,3 @@
-{% extends "../homepage.html" %} {% load static %}
-<head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}" />
-  <!-- navbar -->
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- font -->
-  <link
-    href="https://fonts.googleapis.com/css?family=Nunito"
-    rel="stylesheet"
-  />
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="{% static 'todo/bs/css/flatly.min.css' %}" />
-  <link rel="stylesheet" href="{% static 'todo/styles.css' %}" />
-</head>
-
 {% block headers %}
 <body>
   {% endblock headers %} {% block content %}
@@ -24,18 +5,13 @@
   <div class = "todoList" id = "wrapper">
     <div>Current Tasks</div>
     <ul>
-      {% for i in todoObjects %}
-        <li>
-          {{i.title}}
-        </li>
+      {% for task in todoObjects %}
+        <li>{{task.title}}</li>
+        <hr/>
+        {% empty %}
+        <li>No objects yet.</li>
       {% endfor %}
-    </ul>
-
-    <div>Add Task</div>
-    <form action="/addTask/" method = "post">{% csrf_token %}
-      <input type="text" name="content">
-      <input type="submit" value="Add Todo Item">
-    </form> 
+    </ul>   
   </div>
 
 </body>

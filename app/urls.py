@@ -15,5 +15,5 @@ urlpatterns = [
 
     # Task Urls
     path('upload', views.taskPost, name = 'upload'),
-    path('todo', todoView.as_view()),
+    path('', todoView.as_view()),
 ]
