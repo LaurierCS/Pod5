@@ -1,4 +1,4 @@
-* {
+*{
   font-family: Nunito;
 }
 
@@ -56,9 +56,7 @@ body{
   border-radius: 25px;
   width: 375px;
   margin: 20px auto;
-  padding: 30px;
-  padding-left: 15px;
-  padding-top: 15px;
+  padding: 20px;
   text-align: center;
   background: #cfa57e;
 }
