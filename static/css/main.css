@@ -40,23 +40,8 @@ body{
 
 .logo {
   position: absolute;
-  top: 3%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
-
-/* in this container we will add the tasks */
-div.l {
-  left: 20%;
-  top: 100px;
-  width: 27%;
-  height: fit-content;
-  border: 5px solid #ffff00;
-  padding: 10px;
-
-  position: absolute;
-  justify-content: center;
-  align-items: flex-start;
 }
 
 /* the timer */
@@ -120,6 +105,7 @@ div.l {
   width: 90px;
   margin: 10px auto;
   font-size: 14px;
+  font-family: Nunito;
   height: 50px;
   border-radius: 50px;
 }
@@ -127,35 +113,32 @@ div.l {
 #buttons button#shortBreak {
   background: #75f1a4;
 }
+#buttons button#shortBreak:hover {
+  background: none;
+  border: solid white;
+  transition: all 0.1s;
+  color: white;
+}
+
 
 #buttons button#longBreak {
   background: #69c66b;
 }
+#buttons button#longBreak:hover {
+  background: none;
+  border: solid white;
+  transition: all 0.1s;
+  color: white;
+}
 
 #buttons button#stop {
   background: #f36188;
-} color: white;
-  font-size: 50px;
-  margin: 10px auto;
-  border: 5px solid white;
-  /* border-radius:25px; */
-  /* coffee cup */
-  border-bottom-left-radius: 100px;
-  border-bottom-right-radius: 100px;
-  border: 10px solid gray;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-
-  width: 200px;
-  height: 200px;
-  overflow: hidden;
-  position: relative;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  cursor: default;
+}
+#buttons button#stop:hover {
+  background: none;
+  border: solid white;
+  transition: all 0.1s;
+  color: white;
 }
 
 #time {
@@ -181,64 +164,137 @@ div.l {
   width: 90px;
   margin: 10px auto;
   font-size: 14px;
+  font-family: Nunito;
   height: 50px;
   border-radius: 50px;
 }
-
-#buttons button#shortBreak {
-  background: #75f1a4;
-}
-
-#buttons button#longBreak {
-  background: #69c66b;
-}
-
-#buttons button#stop {
-  background: #f36188;
-=======
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    border: 0;
+#buttons button:hover {
+  background: none;
+  border: solid white;
+  transition: all 0.1s;
+  color: white;
 }
 
 
-.navbar {
-    width: 100vw;
-    height: 50px;
-    background: red;
+
+label {
+  color: rgb(0, 0, 0);
+  margin-bottom: 10px;
+  display: block;
+}
+.btn {
+  background-color: #c7b396;
+  color: #000;
+  padding: 12px;
+  margin: 10px 0;
+  width: 100%;
+  border: none;
+  border-radius: 3px;
+  text-align: center;
+  cursor: pointer;
+  font-size: 17px;
+}
+.btn:hover {
+  background: none;
+  border: solid white;
+  transition: all 0.1s;
+  color: white;
+}
+input[type="text"] {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #000;
+  border-radius: 3px;
+}
+input[type="tel"] {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #000;
+  border-radius: 3px;
 }
 
-.content {
-    width: 100%;
-    height: fit-content;
-    min-height: 100vh;
-    background: yellow;
 
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    border: solid black 3px;
+
+
+input[type=text], input[type=password]{
+	width:100%;
+	padding:15px;
+	margin:5px 0 22px 0;
+	display:inline-block;
+	border:none;
+	background:#FFF;
+}
+input[type=text]:focus,input[type=password]:focus{
+	background-color:#666;
+	outline:none;
+}
+hr{
+	border:1px solid #000;
+}
+.registerbtn{
+	background-color:#C7B396;
+	color:rgb(0, 0, 0);
+	font-size: 15px;
+	padding: 10px 20px;
+	margin:8px 0;
+	border:none;
+	cursor:pointer;
+	width:100%;
+	opacity:0.9;
+}
+.registerbtn:hover{
+	background-color:#977644;
+	color:rgb(0, 0, 0);
+}
+.btn{
+	background-color:#C7B396;
+	color:rgb(0, 0, 0);
+	font-size: 15px;
+	padding: 10px 20px;
+	margin:8px 0;
+	border:none;
+	cursor:pointer;
+	width:100%;
+	opacity:0.9;
+}
+.btn:hover{
+	background-color:#977644;
+	color:rgb(0, 0, 0);
+}
+#section1 {
+    height: 800px;
+}
+  
+#section2 {
+    height: 800px;
 }
 
 
-.columns {
-    width: 300px;
-    height: 700px;
-
-    display: flex;
-    flex-direction: row;
-
-    background-color: green;
-    border: solid black 3px;
-    padding: 15px;
-
+.todolist {
+  width: 40%;
+  padding-left: 50px;
+  padding-top: 60px;
 }
 
-.column {
-    width: 300px;
-    height: 700px;
-    background-color: blue;
-    border: solid black 3px;
+
+h1 {
+  font-size: 40px;
+}
+
+.submit{
+  background-color:#C7B396;
+	color:rgb(0, 0, 0);
+	font-size: 15px;
+	padding: 10px 20px;
+	margin:8px 0;
+	border:none;
+	cursor:pointer;
+	width:100%;
+	opacity:0.9;
+}
+.submit:hover{
+  background-color:#977644;
+	color:rgb(0, 0, 0);
 }
