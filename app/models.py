@@ -1,5 +1,6 @@
 # Imports
 from email.policy import default
+# from tkinter import CASCADE
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.fields import *
@@ -7,25 +8,34 @@ from django.template.defaultfilters import slugify
 
 #Add Entitites (as classes) Here:
 class User_Data(models.Model):
-    email = models.ForeignKey(User, on_delete=models.CASCADE)
+    # email = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
     streak = models.IntegerField(default=0)
     award_number = models.IntegerField(default=0)
 
     # Time will be updated with
-    time_worked = models.DecimalField(decimal_places=2) # Time Represented in Hours   
-    time_break = models.DecimalField(decimal_places=2) 
+    # time_worked = models.DecimalField(decimal_places=2) # Time Represented in Hours   
+    # time_break = models.DecimalField(decimal_places=2) 
 
     # Meta:
     class Meta:
         app_label = 'app'
 
     # General Functions
+    def __str__(self):
+        return self.user.username
 
     # Model Functions
+    # def updateStreak(user_ID, ):
+
+
+    # def getStats(user_ID):
+    #     streak = 
+
 
 class User_Rewards(models.Model):
     # Entities:
-    email = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
     award_name = models.CharField(max_length=50)
     award_value = models.IntegerField()
 
@@ -34,6 +44,7 @@ class User_Rewards(models.Model):
         app_label = 'app'
 
     # General Functions:
+
 
     # Model Functions:
 
@@ -52,7 +63,7 @@ class Notion_DB(models.Model):
 
 # Todo:
 class Todo(models.Model):
-    email = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     taskID = models.AutoField(primary_key=True)
     title = models.CharField(max_length=50)
     description = models.CharField(max_length=500)
@@ -65,3 +76,5 @@ class Todo(models.Model):
         app_label = 'app' # mandatory label: declare for all models
 
     # Set and Get Methods:
+    # def completed(taskID):
+    #     pass

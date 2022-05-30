@@ -1,8 +1,10 @@
 # Imports
+from multiprocessing.reduction import duplicate
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from .models import *
+from django.forms import ModelForm
 
 # User Login Form:
 class User_Registration(UserCreationForm):
@@ -30,30 +32,9 @@ class UserUpdateForm(forms.ModelForm):
         model = User
         fields = ['email']
 
-class TodoForm(forms.Form):
-    title = forms.CharField()
+class TodoForm(forms.ModelForm):
+    title = forms.CharField()   
 
     class Meta:
         model = Todo
         fields = ['title']
-
-    def save(self, commit = True):
-        task = super(TodoForm, self).save(commit = False)
-        task.title = self.cleaned_data['title']
-        if commit:
-            task.save()
-        return task
-
-
-class EditProfileForm(forms.ModelForm):
-    username = forms.CharField(required=True)
-
-    class Meta:
-        model = User
-        fields = ('username', 'email')
-
-
-class TodoForm(forms.Form):
-    text = forms.CharField(max_length=40,
-                           widget=forms.TextInput(
-                               attrs={'class': 'form-control', 'placeholder': 'Enter task here', 'aria-label': 'Todo', 'aria-describedby': 'add-btn'}))

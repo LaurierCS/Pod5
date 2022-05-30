@@ -1,0 +1,14 @@
+{% block headers %}
+<body>
+  {% endblock headers %} {% block content %}
+
+  <div class = "todoList" id = "wrapper">
+    <div>Add Task</div>
+    <form action="upload" method = "post">{% csrf_token %}
+      <input type="text" name="content">
+      <input type="submit" value="Add Todo Item">
+    </form> 
+  </div>
+
+</body>
+{% endblock content%}

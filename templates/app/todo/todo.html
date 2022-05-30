@@ -1,0 +1,18 @@
+{% block headers %}
+<body>
+  {% endblock headers %} {% block content %}
+
+  <div class = "todoList" id = "wrapper">
+    <div>Current Tasks</div>
+    <ul>
+      {% for task in todoObjects %}
+        <li>{{task.title}}</li>
+        <hr/>
+        {% empty %}
+        <li>No objects yet.</li>
+      {% endfor %}
+    </ul>   
+  </div>
+
+</body>
+{% endblock content%}
