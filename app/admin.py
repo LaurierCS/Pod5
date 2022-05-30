@@ -1,8 +1,10 @@
 # Imports
 from django.contrib import admin
-from .models import *
+from app.models import *
+from django.apps import apps
 
-# Register your models here.
-admin.site.register()#Model to register in the Admin site)
 
 admin.site.register(Todo)
+admin.site.register(User_Data)
+admin.site.register(Notion_DB)
+admin.site.register(User_Rewards)

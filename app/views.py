@@ -6,7 +6,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
 from django.views.decorators.http import require_POST
-from django.views import View
+from django.views import View, generic
 
 from .forms import *
 from .models import Todo
@@ -87,10 +87,15 @@ def progress(request):
 """
 Task Views
 """
-# View All Task Objs
-class todo(View):
-    def get(self, request):
-        pass
+# Create Task
+def taskPost(request):
+    if request.POST:
+        taskForm = TodoForm(request.POST)
+        if taskForm.is_valid():
+            taskForm.save()
+        return redirect("index")
+    return render(request, 'app/todo/task_upload.html', {'form': taskForm})
 
-    def post(self, request):
-        pass
+class todoView(generic.ListView):
+    model = Todo
+    template_name = "app/todo/todo.html"
